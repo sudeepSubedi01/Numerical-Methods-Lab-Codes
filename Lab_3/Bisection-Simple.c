@@ -12,6 +12,11 @@ int main(){
   printf("Enter initial interval [a,b]:");
   scanf("%f%f",&a,&b);
 
+  if (f(a)*f(b)>=0){
+    printf("Invalid interval! f(a) and f(b) must have opposite signs.\n");
+    return 1;
+  }
+
   printf("\ni\t\ta\t\tb\t\tc\t\tf(c)\n");
 
   for(i=0;i<11;i++){

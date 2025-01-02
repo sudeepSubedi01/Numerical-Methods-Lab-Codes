@@ -35,9 +35,9 @@ int main() {
 
   printf("\nFindings from the data\n");
 
-  printf("Slope=%f",b);
+  printf("Initial Value(Scaling Factor)=%f",b);
 
-  printf("\nIntercept=%f",a);
+  printf("\nRate Constant(Growth Rate)=%f",a);
 
   if(b<0){
     printf("\nRegression Line: y = %f exp(-%f x) ",a,-b);
