@@ -1,0 +1,81 @@
+Function gauss_jordan(a, tol, d):
+    Initialize X[100] as an empty array
+    Set n = d + 1  // Degree of polynomial + 1 for the augmented matrix size
+    For j from 0 to n-1:  // Loop over columns
+        If abs(a[j][j]) <= tol:  // Check if diagonal element is close to zero
+            Print "Diagonal element close to zero..."
+            Return 1  // Exit the function if the diagonal element is close to zero
+        EndIf
+
+        For i from 0 to n-1:  // Loop over rows
+            If i != j:
+                Set factor = a[i][j] / a[j][j]  // Compute the factor for elimination
+                For k from 0 to n:  // Loop over columns
+                    a[i][k] = a[i][k] - factor * a[j][k]  // Perform elimination
+                EndFor
+            EndIf
+        EndFor
+    EndFor
+
+    Print "The simplified matrix:"  // Print the matrix after Gauss-Jordan elimination
+    For i from 0 to d:
+        For j from 0 to d+1:
+            Print a[i][j]  // Print the elements of the matrix
+        EndFor
+        Print newline
+    EndFor
+
+    Print "The Polynomial Coefficients:"
+    For i from 0 to n-1:
+        Set X[i] = a[i][n] / a[i][i]  // Calculate the polynomial coefficients
+        Print "X[i] = X[i]"  // Print the coefficients
+    EndFor
+End Function
+
+Main Program:
+    Print "Enter the number of data points:"
+    Input n
+
+    Print "Enter degree of polynomial:"
+    Input d
+
+    Print "Enter tolerance value:"
+    Input tol
+
+    Print "Enter the data points:"
+    Initialize arrays x[100] and y[100]
+    For i from 0 to n-1:
+        Print "Enter (x[i], y[i]):"
+        Input x[i], y[i]
+    EndFor
+
+    If n <= d:
+        Print "Invalid values of n and d..."
+        Return 1  // Exit the program if the input values are not valid
+    EndIf
+
+    Initialize matrix a[100][100] to zero
+    For i from 0 to d:
+        For j from 0 to d:
+            For k from 0 to n-1:
+                a[i][j] = a[i][j] + x[k]^(i+j)  // Calculate sums for the augmented matrix
+            EndFor
+        EndFor
+    EndFor
+
+    For i from 0 to d:
+        For k from 0 to n-1:
+            a[i][d+1] = a[i][d+1] + x[k]^i * y[k]  // Fill in the right-hand side of the augmented matrix
+        EndFor
+    EndFor
+
+    Print "The sum matrix:"
+    For i from 0 to d:
+        For j from 0 to d:
+            Print a[i][j]  // Print the sum matrix
+        EndFor
+        Print newline
+    EndFor
+
+    Call gauss_jordan(a, tol, d)  // Solve the system using Gauss-Jordan elimination
+End Main

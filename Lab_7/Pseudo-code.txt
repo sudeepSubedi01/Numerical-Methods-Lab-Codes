@@ -1,0 +1,34 @@
+Function f(x):
+    Return x^3 - 4x - 9
+
+Main Program:
+    Initialize integer variables: N, i = 0
+    Initialize float variables: a, b, c, tol
+    
+    Print "Enter initial guess (a,b):"
+    Input a, b
+    
+    Print "Enter tolerance:"
+    Input tol
+    
+    Print "Enter the max number of iterations:"
+    Input N
+
+    Repeat:
+        If abs(f(b) - f(a)) <= tol:
+            Print "f(a) and f(b) are nearly equal..."
+            Exit program
+        
+        Compute c = (a*f(b) - b*f(a)) / (f(b) - f(a))
+        Update a = b
+        Update b = c
+        
+        If abs(f(c)) <= tol:
+            Exit loop
+        
+        Increment i by 1
+        
+    Until i >= N
+    
+    Print "The approximated root is:", c
+    Print "The functional value f(c) is:", f(c)
