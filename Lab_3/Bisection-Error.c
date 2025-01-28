@@ -13,6 +13,11 @@ int main(){
   printf("Enter initial interval [a,b]:");
   scanf("%f%f",&a,&b);
 
+  if(f(a)*f(b) >= 0){
+    printf("No roots in the given interval....");
+    return 1;
+  }
+
   printf("Enter tolerance:");
   scanf("%f",&tol);
 

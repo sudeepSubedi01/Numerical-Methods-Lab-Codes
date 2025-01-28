@@ -4,9 +4,9 @@
 using namespace std;
 
 float f(float x){
-  return x*x*x-4*x-9;           // root=2.706528  //initial guess= (3,4)
-  // return 1/(x*x*x)+sin(x);      // root=
-  // return x*sin(x)+cos(x);       // root=2.7983
+  //return x*x*x-4*x-9;           // root=2.706528  //initial guess= (3,4)
+  //return 1/(x*x*x)+sin(x);      // root=
+  return x*sin(x)+cos(x);       // root=2.7983
 }
 
 int main(){

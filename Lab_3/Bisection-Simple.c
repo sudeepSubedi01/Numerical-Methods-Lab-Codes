@@ -1,8 +1,10 @@
 #include<stdio.h>
 #include<conio.h>
+#include<math.h>
 
 float f(float x){
-  return x*x*x-4*x-9;
+  // return x*x*x-4*x-9;
+  return x*sin(x)+cos(x);
 }
 
 
